@@ -1,0 +1,75 @@
+posición en memoria:	
+		MOV	ACC, CTE
+		Q	
+		MOV	DPTR, ACC
+		MOV	ACC, [DPTR]
+		MOV 	A, ACC
+		MOV	ACC, CTE
+		0x01	
+		AND	ACC, A
+		JZ	DIR
+		Q0_0	
+			
+			
+		#EVALUAR Q-1
+Q0_1:	MOV	ACC, CTE
+		Q-1	
+		MOV	DPTR, ACC
+		MOV	ACC, [DPTR]
+		MOV	A, ACC
+		MOV	ACC, CTE
+		0x01	
+		AND	ACC, A
+		JZ	CTE
+		Resta	
+		JMP	CTE
+		mover	
+			
+			
+		#EVALUAR Q-1	
+Q0_0:	MOV	ACC, CTE 
+		Q-1	
+		MOV	DPTR, ACC
+		MOV	ACC, [DPTR]
+		MOV	A, ACC
+		MOV	ACC, CTE
+		0x01	
+		"AND	"	ACC, A
+		JZ	CTE
+		mover	
+			
+			
+			
+Sumar:	MOV	ACC, CTE 
+		M	
+		MOV	DPTR, ACC
+		MOV	ACC, [DPTR]
+		MOV	A, ACC
+		MOV	ACC, CTE
+		A	
+		MOV	DPTR, ACC
+		MOV	ACC, [DPTR]
+		ADD	ACC, A
+		MOV	[DPTR], ACC 
+		JMP	
+		mover	
+			
+			
+Restar:	MOV	ACC, CTE
+		M	
+		MOV	DPTR, ACC
+		MOV	ACC, [DPTR]
+		INV	ACC
+		MOV	A, ACC
+		MOV	ACC, CTE 
+		0X01	
+		ADD	ACC, A
+		MOV	A, ACC
+		MOV	ACC, CTE 
+		A	
+		MOV	DPTR, ACC
+		MOV	ACC, [DPTR]
+		ADD	ACC, A
+		MOV	[DPTR], ACC 
+			
+mover:	
